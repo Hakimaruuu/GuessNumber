@@ -47,7 +47,7 @@ while main == 'y':
         if jawab == 'y':
             break
         
-        if atas==bawah:
+        if angka+1==bawah or angka-1==atas:
             print("")
             print("Angkanya pasti",atas)
             break
