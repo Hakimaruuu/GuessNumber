@@ -15,12 +15,13 @@ bawah = start
 atas = end
 
 def processing(jawab,atas,bawah,angka):
-    if jawab == 'a' and (angka != 999):
+    if jawab == 'a':
         if angka > bawah :
             bawah = angka + 1;
+            
         angka = random.randint(bawah,atas)
         
-    if jawab == 'b' and (angka != 0):
+    if jawab == 'b':
         if angka < atas :
             atas = angka - 1;
         angka = random.randint(bawah,atas)
@@ -34,16 +35,24 @@ while main == 'y':
     i = 0
     jawab = 'n'
     
-    while i<10:
+    while jawab != 'y':
         print("")
         print("------------------------------------------------------------------")
         print("")
-        print("My life :",10-i)
+        print("Iterasi ke-",i+1)
+        print(" ")
+        print("atas :",atas)
+        print("bawah :",bawah)
         print("")
         print('Pikirkan angka dari 1 sampai 1000 :',angka)
         jawab = input('Apakah angka anda lebih (a), kurang (b), benar (y) ? : ')
         
         if jawab == 'y':
+            break
+        
+        if atas==bawah or atas-bawah==1 :
+            print("")
+            print("Angkanya pasti",atas,"atau",bawah,)
             break
         
         if angka==1 :
@@ -54,8 +63,9 @@ while main == 'y':
             print("")
             print("Angkanya pasti",angka,"orang batasnya 1000 ga ikutan kok")
             break
-
-        angka, atas, bawah = processing(jawab,atas,bawah,angka)
+        else :
+            angka, atas, bawah = processing(jawab,atas,bawah,angka)
+        
         i = i + 1;   
     else :
         print("")
