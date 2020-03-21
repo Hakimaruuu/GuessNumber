@@ -49,7 +49,7 @@ while main == 'y':
         
         if atas==bawah:
             print("")
-            print("Angkanya pasti",atas,"atau",bawah,)
+            print("Angkanya pasti",atas)
             break
         
         if angka==1 :
