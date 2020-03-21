@@ -7,32 +7,59 @@ Created on Thu Mar 19 10:16:58 2020
 
 import random;
 
-print("Pikirkan angka random dari 1 sampai 1000")
-print("Ingat, jangan bohong dosa")
+main = 'y'
+start = 1
+end = 1000
+jawab = 'n'
+bawah = start
+atas = end
 
-tebak = int(random.randrange(1,1000))
-i = 0;
-atas = 1000;
-bawah = 1;
-
-while (i<10):
-    print(" ")
-    print("Apakah angka yang dipikirkan ",tebak)
-    jawaban = input("Jawaban (up/down/ya) :")
-    if jawaban == 'ya':
-        print("yess")
-        break
-    elif jawaban == 'up':
-        bawah = tebak;
-    elif jawaban == 'down':
-        atas = tebak;
+def processing(jawab,atas,bawah,angka):
+    if jawab == 'a' and (angka != 999):
+        if angka > bawah :
+            bawah = angka + 1;
+        angka = random.randint(bawah,atas)
         
-    tebak = int(random.randrange(bawah,atas))
-    if bawah == atas:
-        print("boong lu")
-        break
-    else:
-        i=i+1
+    if jawab == 'b' and (angka != 0):
+        if angka < atas :
+            atas = angka - 1;
+        angka = random.randint(bawah,atas)
     
-else:
-    print("nyerah dah")
+    return angka,atas,bawah;
+
+while main == 'y':
+    bawah = start
+    atas = end
+    angka = random.randint(bawah,atas)
+    i = 0
+    jawab = 'n'
+    
+    while i<10:
+        print("")
+        print("------------------------------------------------------------------")
+        print("")
+        print("My life :",10-i)
+        print("")
+        print('Pikirkan angka dari 1 sampai 1000 :',angka)
+        jawab = input('Apakah angka anda lebih (a), kurang (b), benar (y) ? : ')
+        
+        if jawab == 'y':
+            break
+        
+        if angka==1 :
+            print("")
+            print("Angkanya pasti",angka,"orang batas bawahnya 1 kok")
+            break
+        elif angka==999 :
+            print("")
+            print("Angkanya pasti",angka,"orang batasnya 1000 ga ikutan kok")
+            break
+
+        angka, atas, bawah = processing(jawab,atas,bawah,angka)
+        i = i + 1;   
+    else :
+        print("")
+        print("Nyerah saya")
+    print("")
+    print("HAHAHA") 
+    main = input("Lanjut? (y/n) :")
