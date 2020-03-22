@@ -13,12 +13,15 @@ angka = 1000
 coba = 1
 run = 0
 model = 0
-mod = [1000,750,500,125,63,32,16,8,4,2,1]
+mod = [1000,500,250,125,62,31,15,7,3,1]
 
 
 def processing(jawab,iterate,angka,run,model):
     if jawab == 'a':
-        angka = angka + mod[iterate]
+        if angka == 1000:
+            angka = angka
+        else:
+            angka = angka + mod[iterate]
         iterate = iterate + 1
         
         if angka == 1000:
@@ -28,12 +31,15 @@ def processing(jawab,iterate,angka,run,model):
         elif angka != 0 and angka != 1000:
             model = 1
             
-
         if coba == 10:
             run = 1
     
     if jawab == 'b':
-        angka = angka - mod[iterate]
+        if angka == 0:
+            angka = angka
+        else:
+            angka = angka - mod[iterate]
+        
         iterate = iterate + 1
         
         if angka == 0:
@@ -42,8 +48,7 @@ def processing(jawab,iterate,angka,run,model):
             model = 1
         elif angka != 0 and angka != 1000:
             model = 1
-            
-            
+                
         if coba == 10:
             run = 1
             
@@ -51,6 +56,9 @@ def processing(jawab,iterate,angka,run,model):
 
 while main == 'y':
     i = 1
+    angka = 1000
+    run = 0
+    model = 0
     jawab = 'n'
     
     while i<10 :
@@ -73,7 +81,14 @@ while main == 'y':
         elif model == 2:
             jawab = input('Apakah angka anda lebih (a), benar (y) ? : ')
         
-        
+        if model == 0 and jawab == 'a':
+            i = i - 1
+            angka = 1000
+        elif model == 2 and jawab == 'b':
+            i = i - 1
+            angka = 0
+        else:
+            i = i
         
         if run == 1:
             break
