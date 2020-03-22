@@ -13,7 +13,7 @@ angka = 1000
 coba = 1
 run = 0
 model = 0
-mod = [1000,500,125,63,32,16,8,4,2,1]
+mod = [1000,750,500,125,63,32,16,8,4,2,1]
 
 
 def processing(jawab,iterate,angka,run,model):
